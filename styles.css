@@ -1,0 +1,135 @@
+:root {
+  /* Colors */
+  --color-primary: hsl(47, 88%, 63%);
+  --color-white: hsl(0, 0%, 100%);
+  --color-text: hsl(0, 0%, 42%);
+  --color-dark: hsl(0, 0%, 7%);
+
+  /* Typography */
+  --line-height-base: 150%;
+  --font-weight-regular: 500;
+  --font-weight-bold: 800;
+  --font-size-base: 1rem;
+  --font-size-small: 0.875rem;
+
+  /* Spacing */
+  --space-xs: 0.25rem;    /* 4px */
+  --space-sm: 0.75rem;    /* 12px */
+  --space-md: 1.3rem;     /* ~20px */
+  
+  /* Border Radius */
+  --radius-sm: 0.25rem;   /* 4px */
+  --radius-md: 0.625rem;  /* 10px */
+  --radius-lg: 1.25rem;   /* 20px */
+
+  /* Shadow */
+  --shadow-offset: 0.5rem;  /* 8px */
+  --shadow-offset-hover: 1rem; /* 16px */
+
+  --Smaller-font-size: 14px;
+}
+
+@media screen and (max-width: 375px) {
+  html {
+    font-size: var(--Smaller-font-size);
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url("./assets/fonts/Figtree-VariableFont_wght.ttf") format("truetype");
+}
+
+body {
+  background-color: var(--color-primary);
+  font-family: "Figtree", sans-serif;
+  line-height: var(--line-height-base);
+}
+
+.wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.card {
+  background-color: var(--color-white);
+  max-width: 24rem;  /* 384px */
+  padding: var(--space-md);
+  margin: var(--space-md);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  border: 1px solid var(--color-dark);
+  filter: drop-shadow(var(--shadow-offset) var(--shadow-offset) var(--color-dark));
+  transition: filter 0.3s ease;
+}
+
+.card:hover {
+  filter: drop-shadow(var(--shadow-offset-hover) var(--shadow-offset-hover) var(--color-dark));
+}
+
+.card:hover .card__title {
+  color: var(--color-primary);
+}
+
+.card__image {
+  width: 100%;
+  border-radius: var(--radius-md);
+}
+
+.card__tag {
+  color: var(--color-dark);
+  background-color: var(--color-primary);
+  padding: var(--space-xs) var(--space-sm);
+  width: fit-content;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+}
+
+.card__date {
+  color: var(--color-dark);
+  font-size: var(--font-size-small);
+}
+
+.card__content {
+  margin-bottom: var(--space-sm);
+  color: var(--color-text);
+}
+
+.card__title {
+  color: var(--color-dark);
+  margin-top: var(--space-sm);
+  margin-bottom: var(--space-sm);
+  transition: color 0.3s ease;
+}
+
+.card__footer {
+  height: 2.3rem;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.card__avatar {
+  width: auto;
+  height: 100%;
+}
